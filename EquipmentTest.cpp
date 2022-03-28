@@ -4,11 +4,15 @@
 #include <iostream>
 #include "Weapon.h"
 #include "Armor.h"
+#include "GameManager.h"
 
 int main()
 {
     Weapon battleAxe("BattleAxe", Weapon::eDamageType::Slash, 3, 3);
     Armor chainMail("ChainMail", 5, 3);
+
+    Manager::LevelBuilder(5, 5);
+
 
     
 }
