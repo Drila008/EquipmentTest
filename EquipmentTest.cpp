@@ -11,7 +11,7 @@ int main()
     Weapon battleAxe("BattleAxe", Weapon::eDamageType::Slash, 3, 3);
     Armor chainMail("ChainMail", 5, 3);
 
-    Manager::LevelBuilder(5, 5);
+    Manager::LevelBuilder(10, 20);
 
 
     

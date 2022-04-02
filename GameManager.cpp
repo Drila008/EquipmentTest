@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include <list>
 
 void Manager::LevelBuilder(int height, int width)
 {
@@ -8,10 +9,17 @@ void Manager::LevelBuilder(int height, int width)
 		{
 			char mapSymbolToDraw = '.';
 
-
+			cout << mapSymbolToDraw;
 
 		}
+		
 		//Change row
+		cout << endl;
 	}
+
+}
+
+void Manager::CreateEnemies()
+{
 
 }
