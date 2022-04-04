@@ -4,18 +4,14 @@
 class Weapon : public Equipment
 {
 public:
-	enum class eDamageType { Slash, Stab, Crush};
 	int weaponDamage;
-	eDamageType damageType;
 
 	//Constructors
-	Weapon(string name, eDamageType DamageType, int wpnDmg, float weight)
+	Weapon(string name, int wpnDmg, float Weight)
 	{
 		itemName = name;
-		damageType = DamageType;
 		weaponDamage = wpnDmg;
-		itemWeight = weight;
-		itemType = eItemType::Weapon; //Give the enum a value in constructor
+		weight = Weight;
 	};
 	Weapon();
 

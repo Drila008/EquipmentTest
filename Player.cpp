@@ -1,13 +1,29 @@
 #include "Player.h"
 
 
-void Player::CalculateStats()
-{
-	for (auto& item : items)
-	{
-		strength = 3;
-		health = 3;
 
-		strength += item->weaponDamage
-	}
+
+Player::Player(string Name, int str, int AC)
+{
+	name = Name;
+	strength = str;
+	armorClass = AC;
 }
+
+float Player::CalculateWeight()
+{
+	float totalWeight = 0;
+	for (auto& items : inventoryItems)
+	{
+		totalWeight += items->weight;
+	}
+
+	for (auto& items : equippedItems)
+	{
+		totalWeight += items->weight;
+	}
+
+	return totalWeight;
+}
+
+

@@ -5,7 +5,15 @@
 
 class Player : public Character
 {
-	list<unique_ptr<Equipment>> items;
+public:
+	list<unique_ptr<Equipment>> equippedItems;
+	list<unique_ptr<Equipment>> inventoryItems;
 
-	void CalculateStats();
+	Player(string Name, int str, int AC);
+	float CalculateWeight();
+
+private:
+	void Equip(Equipment itemToEquip);
+	void PrintEquipment();
+	Equipment AddItemToInventory();
 };

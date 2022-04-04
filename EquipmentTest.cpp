@@ -4,17 +4,105 @@
 #include <iostream>
 #include "Weapon.h"
 #include "Armor.h"
-#include "GameManager.h"
+#include "Player.h"
+
+void CreateItem();
+void CreateArmor(Player player);
+void CreateWeapon(Player player);
 
 int main()
 {
-    Weapon battleAxe("BattleAxe", Weapon::eDamageType::Slash, 3, 3);
-    Armor chainMail("ChainMail", 5, 3);
+    bool run = true;
+    Player player("Supertappaja", 3, 3);
+    player.equippedItems.push_back(make_unique<Weapon>("BattleAxe", 3, 4.5f));
+    player.equippedItems.push_back(make_unique<Armor>("ChainMail", 3, 3));
+    player.inventoryItems.push_back(make_unique<Armor>("Platebody", 5, 8));
+    //Manager::LevelBuilder(10, 20);
 
-    Manager::LevelBuilder(10, 20);
+    char selection;
 
+    while (run)
+    {
+        cout << "Character name: " << player.name << endl;
+        cout << "Currently equipped items:" << endl;
+        for (auto& item : player.equippedItems)
+        {
+            cout << item->itemName << endl;
+        }
 
+        cout << "Items in inventory: " << endl;
+
+        for (auto& item : player.inventoryItems)
+        {
+            cout << item->itemName << endl;
+        }
+
+        cout << "Player total weight: " << player.CalculateWeight() << endl;
+        cout << "Choose what to do: " << endl;
+
+        cout << "1: Create a new item" << endl;
+        cout << "2: Equip an item" << endl;
+
+        cin >> selection;
+
+        switch (selection)
+        {
+        default:
+            cout << "Invalid input" << endl;
+            break;
+
+        case '1':
+            CreateWeapon(player);
+            break;
+
+        case '2':
+
+            break;
+        }
+    }
     
+}
+
+//void CreateItem(Player player)
+//{
+//    char itemToCreate;
+//
+//    cout << "Press 1 to create a weapon" << endl;
+//    cout << "Press 2 to create an armor" << endl;
+//
+//    cin >> itemToCreate;
+//
+//    switch (itemToCreate)
+//    {
+//    default:
+//        cout << "Invalid input";
+//        break;
+//
+//    case 1:
+//        CreateWeapon(player);
+//
+//        break;
+//    case 2:
+//
+//        break;
+//    }
+//}
+//
+void CreateWeapon(Player player)
+{
+    string wpnName;
+    int dmgType;
+    int wpnDmg;
+    float wpnWeight;
+
+
+    cout << "Give a name: ";
+    cin >> wpnName;
+    cout << endl << "Give weapon damage: ";
+    cin >> wpnDmg;
+    cout << endl << "Give weapon weight: ";
+
+    player.inventoryItems.push_back(make_unique<Weapon>(wpnName, wpnDmg, wpnWeight));
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

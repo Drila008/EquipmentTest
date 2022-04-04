@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -8,20 +9,13 @@ class Equipment
 {
 public:
 
-	enum class eItemType {Weapon, Armor, Consumable};
+	enum class eItemType {Weapon, Armor};
 	eItemType itemType;
 	string itemName;
-	int itemID;
-	float itemWeight;
+	float weight;
 
 	//Constructors
-	Equipment(eItemType type, string name, int weight, int id)
-	{
-		itemType = type;
-		itemName = name;
-		itemWeight = itemWeight;
-		itemID = id;
-	};
+
 	Equipment() {};
 
 	//Destructor
@@ -29,6 +23,5 @@ public:
 	{
 		cout << itemName << " destroyed";
 	};
-
 
 };

@@ -7,12 +7,12 @@ public:
 	int armorClass;
 
 	//Constructors
-	Armor(string name, int ArmorClass, float weight)
+	Armor(string name, int ArmorClass, float Weight)
 	{
 		itemName = name;
 		armorClass = ArmorClass;
-		itemWeight = weight;
 		itemType = eItemType::Armor; //Give the enum a value in constructor
+		weight = Weight;
 	};
 	Armor();
 

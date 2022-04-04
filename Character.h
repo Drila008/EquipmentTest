@@ -10,13 +10,8 @@ class Character
 public:
 	int health;
 	int strength;
-	int mapPosX, mapPosY;
 	string name;
-	char mapSymbol;
 	int armorClass;
 
 	Character() {};
-
-	void TakeDamage(int dmg);
-	virtual void Die();
 };
